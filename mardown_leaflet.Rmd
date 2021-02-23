@@ -1,0 +1,22 @@
+---
+title: "Santiago Communes"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### 23 February, 2021
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(leaflet)
+
+data <- read.csv('./comunas_santiago.csv', encoding = "UTF-8")
+
+data %>%
+    leaflet() %>%
+    addTiles() %>%
+    addMarkers(popup = data$comuna)
+```
+
+By **Mauricio Santelices** for Developing Data Products course from John Hopkins University at Coursera**
